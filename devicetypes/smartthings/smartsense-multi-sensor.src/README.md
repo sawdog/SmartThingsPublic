@@ -1,6 +1,6 @@
 # Smartsense Multi Sensor
 
-
+Local Execution on V2 Hubs
 
 Works with: 
 
@@ -26,11 +26,21 @@ Works with:
 
 ## Device Health
 
-A Category C2 multi sensor with maxReportTime of 1 hr.
-Check-in interval is double the value of maxReportTime for Zigbee device. 
-This gives the device twice the amount of time to respond before it is marked as offline.
-Check-in interval = 2*60 = 120 min
+SmartSense Multi sensor with reporting interval of 5 mins.
+SmartThings platform will ping the device after `checkInterval` seconds of inactivity in last attempt to reach the device before marking it `OFFLINE` 
+
+* V1, TV, HubV2 AppEngine < 1.5.1 - __121min__ checkInterval
+* HubV2 AppEngine 1.5.1 - __12min__ checkInterval
 
 ## Battery Specification
 
-Two AAAA battery required.
+One CR2450 (for Samsung SmartThings Multipurpose Sensor) battery / Two AAAA (for SmartSense Multi Sensor) batteries required.
+
+## Troubleshooting
+
+If the sensor doesn't pair when trying from the SmartThings mobile app, it is possible that the sensor is out of range.
+Pairing needs to be tried again by placing the sensor closer to the hub.
+Other troubleshooting tips are listed as follows:
+* [Troubleshooting: Samsung SmartThings Multipurpose Sensor is stuck on "open" or "closed"](https://support.smartthings.com/hc/en-us/articles/200955940-Troubleshooting-Samsung-SmartThings-Multipurpose-Sensor-is-stuck-on-open-or-closed-)
+* [Troubleshooting: Temperature reading for the Samsung SmartThings Multipurpose Sensor is off](https://support.smartthings.com/hc/en-us/articles/200756845-Troubleshooting-Temperature-reading-for-the-Samsung-SmartThings-Multipurpose-Sensor-is-off)
+* [Troubleshooting: Samsung SmartThings Multipurpose Sensor won’t pair after removing pull-tab](https://support.smartthings.com/hc/en-us/articles/204966616-Troubleshooting-Samsung-SmartThings-device-won-t-pair-after-removing-pull-tab)

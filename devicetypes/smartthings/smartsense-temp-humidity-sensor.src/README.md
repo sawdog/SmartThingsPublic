@@ -1,6 +1,6 @@
 # SmartSense Temp/Humidity Sensor
 
-
+Local Execution on V2 Hubs
 
 Works with: 
 
@@ -24,11 +24,19 @@ Works with:
 
 ## Device Health
 
-A Category C2 SmartSense Temp/Humidity Sensor with maxReportTime of 1 hr.
-Check-in interval is double the value of maxReportTime for Zigbee device. 
-This gives the device twice the amount of time to respond before it is marked as offline.
-Check-in interval = 2*60 = 120 min
+SmartSense Temp/Humidity Sensor with reporting interval of 5 mins.
+SmartThings platform will ping the device after `checkInterval` seconds of inactivity in last attempt to reach the device before marking it `OFFLINE` 
+
+* V1, TV, HubV2 AppEngine < 1.5.1 - __121min__ checkInterval
+* HubV2 AppEngine 1.5.1 - __12min__ checkIntervalr 5 min interval is confirmed
 
 ## Battery Specification
 
 One CR2 battery is required.
+
+## Troubleshooting
+
+If the sensor doesn't pair when trying from the SmartThings mobile app, it is possible that the sensor is out of range.
+Pairing needs to be tried by placing the sensor closer to the hub.
+Instructions related to pairing, resetting and removing the sensor from SmartThings can be found in the following link:
+* [Troubleshooting Tips](https://support.smartthings.com/hc/en-us/articles/203040294)

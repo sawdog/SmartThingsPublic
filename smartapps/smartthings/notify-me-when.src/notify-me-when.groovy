@@ -26,7 +26,8 @@ definition(
 		description: "Receive notifications when anything happens in your home.",
 		category: "Convenience",
 		iconUrl: "https://s3.amazonaws.com/smartapp-icons/Meta/window_contact.png",
-		iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Meta/window_contact@2x.png"
+		iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Meta/window_contact@2x.png",
+		pausable: true
 )
 
 preferences {
@@ -111,16 +112,23 @@ private sendMessage(evt) {
 	if (location.contactBookEnabled) {
 		sendNotificationToContacts(msg, recipients, options)
 	} else {
-		if (pushAndPhone != 'No') {
-			log.debug 'sending push'
-			options.method = 'push'
-			sendNotification(msg, options)
-		}
 		if (phone) {
 			options.phone = phone
-			log.debug 'sending SMS'
-			sendNotification(msg, options)
+			if (pushAndPhone != 'No') {
+				log.debug 'Sending push and SMS'
+				options.method = 'both'
+			} else {
+				log.debug 'Sending SMS'
+				options.method = 'phone'
+			}
+		} else if (pushAndPhone != 'No') {
+			log.debug 'Sending push'
+			options.method = 'push'
+		} else {
+			log.debug 'Sending nothing'
+			options.method = 'none'
 		}
+		sendNotification(msg, options)
 	}
 	if (frequency) {
 		state[evt.deviceId] = now()
