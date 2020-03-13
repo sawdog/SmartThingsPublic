@@ -25,8 +25,6 @@ metadata {
 		attribute "multiStatus", "string"
 
 		fingerprint mfr: "010F", prod: "0702"
-		fingerprint deviceId: "0x0701", inClusters:"0x5E,0x59,0x22,0x80,0x56,0x7A,0x73,0x98,0x31,0x85,0x70,0x5A,0x72,0x8E,0x71,0x86,0x84"
-		fingerprint deviceId: "0x0701", inClusters:"0x5E,0x59,0x22,0x80,0x56,0x7A,0x73,0x31,0x85,0x70,0x5A,0x72,0x8E,0x71,0x86,0x84"
 	}
 
 	tiles (scale: 2) {
@@ -74,16 +72,6 @@ metadata {
 	}
 		
 	preferences {
-		
- 		input (
-			title: "Fibaro Door/Window Sensor 2",
-			description: "Tap to view the manual.",
-			image: "http://manuals.fibaro.com/wp-content/uploads/2017/05/dws2.jpg",
-			url: "http://manuals.fibaro.com/content/manuals/en/FGDW-002/FGDW-002-EN-T-v1.0.pdf",
-			type: "href",
-			element: "href"
-		)
-		
 		input (
 			title: "Wake up interval",
 			description: "How often should your device automatically sync with the HUB. The lower the value, the shorter the battery life.\n0 or 1-18 (in hours)",

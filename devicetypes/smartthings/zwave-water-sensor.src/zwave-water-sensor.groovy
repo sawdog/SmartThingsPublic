@@ -29,6 +29,8 @@ metadata {
 		fingerprint mfr: "0258", prod: "0003", model: "1085", deviceJoinName: "NEO Coolcam Water Sensor" //NAS-WS03ZE
 		fingerprint mfr: "0086", prod: "0102", model: "007A", deviceJoinName: "Aeotec Water Sensor 6" //US
 		fingerprint mfr: "0086", prod: "0002", model: "007A", deviceJoinName: "Aeotec Water Sensor 6" //EU
+		fingerprint mfr: "0086", prod: "0202", model: "007A", deviceJoinName: "Aeotec Water Sensor 6" //AU
+		fingerprint mfr: "000C", prod: "0201", model: "000A", deviceJoinName: "HomeSeer LS100+ Water Sensor"
 	}
 
 	simulator {
@@ -42,8 +44,8 @@ metadata {
 	tiles(scale: 2) {
 		multiAttributeTile(name: "water", type: "generic", width: 6, height: 4) {
 			tileAttribute("device.water", key: "PRIMARY_CONTROL") {
-				attributeState("dry", icon: "st.alarm.water.dry", backgroundColor: "#ffffff")
-				attributeState("wet", icon: "st.alarm.water.wet", backgroundColor: "#00A0DC")
+				attributeState("dry", label:'${name}', icon: "st.alarm.water.dry", backgroundColor: "#ffffff")
+				attributeState("wet", label:'${name}', icon: "st.alarm.water.wet", backgroundColor: "#00A0DC")
 			}
 		}
 		valueTile("battery", "device.battery", inactiveLabel: false, decoration: "flat", width: 2, height: 2) {
